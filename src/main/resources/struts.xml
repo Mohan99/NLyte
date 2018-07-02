@@ -1,0 +1,274 @@
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<include file="struts-default.xml" />
+	<constant name="struts.devMode" value="true" />
+	<package name="nlyte" extends="struts-default">
+		<result-types>
+			<result-type name="tiles"
+				class="org.apache.struts2.views.tiles.TilesResult" />
+		</result-types>
+		<action name="nlyteLogin" class="com.gcs.nlyte.web.action.NlyteLoginAction">
+			<result name="nlyteLogin" type="tiles">nlyteLogin</result>
+		</action>
+		<action name="nlyteLogon" class="com.gcs.nlyte.web.action.LogonAction">
+			<result name="success" type="tiles">dashboard</result>
+			<result name="error" type="tiles">nlyteLogin</result>
+		</action>
+		<action name="dashboard" method="dashboardCount"
+			class="com.gcs.nlyte.web.action.LogonAction">
+			<result name="success" type="tiles">dashboard</result>
+
+		</action>
+		<action name="nlyteLogout" method="nlyteLogOut"
+			class="com.gcs.nlyte.web.action.LogonAction">
+			<result name="success" type="tiles">nlyteLogout</result>
+			<result name="error" type="tiles">nlyteLogout</result>
+		</action>
+
+
+		<action name="NlyteCustProcess" class="com.gcs.nlyte.web.action.NlyteCustProcessAction">
+			<result name="success" type="tiles">custImportData</result>
+			<result name="error" type="tiles">custImportData</result>
+		</action>
+
+		<action name="NlyteReviewCustProcess" method="getCustProcesData"
+			class="com.gcs.nlyte.web.action.NlyteCustProcessAction">
+			<result name="success" type="tiles">nlyteCustDataUpdated</result>
+		</action>
+
+		<action name="NlyteReviewCustProcessExport" method="getCustProcesDataExport"
+			class="com.gcs.nlyte.web.action.NlyteCustProcessAction">
+			<result name="success" type="tiles">nlyteCustDataExportUpdated
+			</result>
+		</action>
+		<!-- Nlyte create user -->
+		<action class="com.gcs.nlyte.web.action.NlyteUserAction" name="nlyteUserCreate"
+			method="nlyteCreateUser">
+			<result name="nlyteUserCreate" type="tiles">nlyteUserCreate</result>
+		</action>
+
+		<action name="nlyteCreateUserCall" method="nlyteCreateUserCall"
+			class="com.gcs.nlyte.web.action.NlyteUserAction">
+			<result name="success" type="tiles">nlyteUserList</result>
+			<result name="nlyteUserCreate" type="tiles">nlyteUserCreate</result>
+			<result name="error" type="tiles">nlyteUserCreate</result>
+		</action>
+
+		<!-- Nlyte display user list -->
+
+		<action name="nlyteUserList" method="nlyteDisplayUserList"
+			class="com.gcs.nlyte.web.action.NlyteUserAction">
+			<result name="success" type="tiles">nlyteUserList</result>
+			<result name="error" type="tiles">nlyteUserList</result>
+		</action>
+
+		<action name="nlyteDeletedUserList" method="nlyteDeletedUserList"
+			class="com.gcs.nlyte.web.action.NlyteUserAction">
+			<result name="success" type="tiles">nlyteDeletedUserList</result>
+			<result name="error" type="tiles">nlyteDeletedUserList</result>
+		</action>
+
+
+
+		<action name="nlyteMasterDataList" class="com.gcs.nlyte.web.action.NlyteMasterDataAction">
+			<result name="success" type="tiles">nlyteShowMasterData</result>
+			<result name="error" type="tiles">nlyteShowMasterData</result>
+		</action>
+
+		<!--import customer Excel for Request -->
+		<action class="com.gcs.nlyte.web.action.NlyteCustImportAction"
+			name="nlyteCustImportReq" method="nlyteCustImportExcel">
+			<result name="nlyteCustImportReq" type="tiles">custImportBulk</result>
+		</action>
+		<!-- import customer Excel for Response -->
+		<action name="nlyteCustImport" class="com.gcs.nlyte.web.action.NlyteCustImportAction"
+			method="nlyteCustomerImportBulk">
+			<result name="success" type="tiles">custImportData</result>
+			<result name="error" type="tiles">custImportBulk</result>
+		</action>
+		<action name="nlyteCustomerrocessedList" method="nlyteCustomerProcessCompletedList"
+			class="com.gcs.nlyte.web.action.NlyteCustImportAction">
+			<result name="success" type="tiles">custProcessedData</result>
+			<result name="error" type="tiles">custProcessedData</result>
+		</action>
+		<!-- Import Excel Customer Data display list in Parent Table -->
+		<action name="nlyteCustomerImportList" method="nlyteCustomerImportList"
+			class="com.gcs.nlyte.web.action.NlyteCustImportAction">
+			<result name="success" type="tiles">custDataOther</result>
+			<result name="error" type="tiles">custDataOther</result>
+		</action>
+		
+		<action name="nlyteCustomerImportListMain" method="nlyteCustomerImportList"
+			class="com.gcs.nlyte.web.action.NlyteCustImportAction">
+			<result name="success" type="tiles">custImportData</result>
+			<result name="error" type="tiles">custImportData</result>
+		</action>
+		
+		<action name="nlyteCustDelete" method="deleteCustData"
+			class="com.gcs.nlyte.web.action.NlyteCustImportAction">
+			<result name="success" type="tiles">custImportData</result>
+			<result name="error" type="tiles">custImportData</result>
+		</action>
+
+		<!-- Processed customer records, if found multiple equal records in master 
+			to process further -->
+		<action name="nlyteCustomerReviewImportList" method="nlyteCustomerReviewList"
+			class="com.gcs.nlyte.web.action.NlyteCustImportAction">
+			<result name="success" type="tiles">nlyteReviewCustData</result>
+
+
+		</action>
+
+		<!-- Display of each cell content in customer Excel sheet -->
+		<action name="nlyteCustomerCellList" method="nlyteCustomerList"
+			class="com.gcs.nlyte.web.action.NlyteCustImportStgAction">
+			<result name="success" type="tiles">custCellEditData</result>
+			<result name="error" type="tiles">custCellEditData</result>
+		</action>
+
+		<!-- Display of each cell content in customer Excel sheet -->
+		<action name="processData" method="processData"
+			class="com.gcs.nlyte.web.action.NlyteCustImportStgAction">
+			<result name="success" type="tiles">custCellViewProcessesData</result>
+			<result name="error" type="tiles">custCellViewProcessesData</result>
+		</action>
+		
+
+		<!--import Nlyte Excel for Request -->
+		<action class="com.gcs.nlyte.web.action.NlyteImportAction"
+			name="nlyteImportReq" method="nlyteImportExcel">
+			<result name="nlyteImportReq" type="tiles">nLyteImportBulk</result>
+		</action>
+		<!--import master Excel for Response -->
+		<action name="nlyteImport" class="com.gcs.nlyte.web.action.NlyteImportAction"
+			method="nlyteImportCall">
+			<result name="success" type="tiles">nlyteImportData</result>
+			<result name="error" type="tiles">nLyteImportBulk</result>
+		</action>
+
+		<action name="transDataView"
+			class="com.gcs.nlyte.web.action.NlyteCustTransDataViewAction">
+			<result name="success" type="tiles">nlyteViewtData</result>
+			<result name="error" type="tiles">nlyteViewtData</result>
+		</action>
+
+		<action name="transDataViewProcessed" method="viewCustProcessed"
+			class="com.gcs.nlyte.web.action.NlyteCustTransDataViewAction">
+			<result name="success" type="tiles">nlyteViewtDataProcessed</result>
+			<result name="error" type="tiles">nlyteViewtDataProcessed</result>
+		</action>
+
+		<action name="transDataViewUnprocessed" method="viewCustUnProcessed"
+			class="com.gcs.nlyte.web.action.NlyteCustTransDataViewAction">
+			<result name="success" type="tiles">nlyteViewtDataUnprocessed</result>
+			<result name="error" type="tiles">nlyteViewtDataUnprocessed</result>
+		</action>
+
+		<action name="transMasterDataView"
+			class="com.gcs.nlyte.web.action.NlyteMasterTransDataViewAction">
+			<result name="success" type="tiles">nlyteViewMasterTransData</result>
+			<result name="error" type="tiles">nlyteViewMasterTransData</result>
+		</action>
+		<action name="transMasterDataExport" method="transMasterDataExport"
+			class="com.gcs.nlyte.web.action.NlyteMasterTransDataViewAction">
+			<result name="success" type="tiles">nlyteCustDataExportUpdated
+			</result>
+			<result name="error" type="tiles">nlyteCustDataExportUpdated</result>
+		</action>
+
+		<action name="transDataViewExport" method="exportProcessedData"
+			class="com.gcs.nlyte.web.action.NlyteCustTransDataViewAction">
+			<result name="success" type="tiles">nlyteViewtDataExport</result>
+			<result name="error" type="tiles">nlyteViewtDataExport</result>
+		</action>
+
+		<action name="transDataViewUnMatchedExport" method="exportUnProcessedData"
+			class="com.gcs.nlyte.web.action.NlyteCustTransDataViewAction">
+			<result name="success" type="tiles">nlyteViewtDataExport</result>
+			<result name="error" type="tiles">nlyteViewtDataExport</result>
+		</action>
+
+		<action name="pdfExportProcessedData" method="pdfExportProcessedData"
+			class="com.gcs.nlyte.web.action.NlyteCustTransDataViewAction">
+			<result name="success" type="tiles">nlyteViewtDataExport</result>
+			<result name="error" type="tiles">nlyteViewtDataExport</result>
+		</action>
+
+		<action name="nlyteUserList" method="nlyteDisplayUserList"
+			class="com.gcs.nlyte.web.action.NlyteUserAction">
+			<result name="success" type="tiles">nlyteUserList</result>
+			<result name="error" type="tiles">nlyteUserList</result>
+		</action>
+
+		<action name="nlyteEditUser" method="nlyteDisplayEditUser"
+			class="com.gcs.nlyte.web.action.NlyteUserAction">
+			<result name="success" type="tiles">nlyteEditUser</result>
+			<result name="error" type="tiles">nlyteEditUser</result>
+		</action>
+
+		<action name="nlyteUpdateUser" method="nlyteUpdateUser"
+			class="com.gcs.nlyte.web.action.NlyteUserAction">
+			<result name="success" type="tiles">nlyteUserList</result>
+			<result name="error" type="tiles">nlyteUserList</result>
+		</action>
+
+		<action name="nlyteDeleteUser" method="nlyteDeleteUser"
+			class="com.gcs.nlyte.web.action.NlyteUserAction">
+			<result name="success" type="tiles">nlyteUserList</result>
+			<result name="error" type="tiles">nlyteUserList</result>
+		</action>
+
+		<action name="nlyteActivateUser" method="nlyteActivateUser"
+			class="com.gcs.nlyte.web.action.NlyteUserAction">
+			<result name="success" type="tiles">nlyteDeletedUserList</result>
+			<result name="error" type="tiles">nlyteDeletedUserList</result>
+		</action>
+
+		<action name="changePwd" method="changePwd"
+			class="com.gcs.nlyte.web.action.NlyteUserAction">
+			<result name="success" type="tiles">changePwd</result>
+			<result name="error" type="tiles">changePwd</result>
+		</action>
+
+		<action name="changePassword" method="changePassword"
+			class="com.gcs.nlyte.web.action.NlyteUserAction">
+			<result name="success" type="tiles">nlyteChangePassword</result>
+			<result name="error" type="tiles">nlyteChangePassword</result>
+		</action>
+
+
+		<action name="getCustProcessedDataById" method="getCustProcessedDataById"
+			class="com.gcs.nlyte.web.action.NlyteCustProcessAction">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+			<result name="success" type="tiles">nlyteCustDataUpdated</result>
+			<result name="error" type="tiles">nlyteCustDataUpdated</result>
+
+		</action>
+
+		<action name="processingMultipleCustomer" method="nlyteProcessSeleted"
+			class="com.gcs.nlyte.web.action.NlyteCustProcessAction">
+			<result name="success" type="tiles">custImportData</result>
+			<result name="error" type="tiles">custImportData</result>
+		</action>
+		<action name="transDataViewMultiMatched" method="viewCustMultiMatched"
+			class="com.gcs.nlyte.web.action.NlyteCustTransDataViewAction">
+			<result name="success" type="tiles">nlyteViewtDataMultiMatched
+			</result>
+			<result name="error" type="tiles">nlyteViewtDataMultiMatched</result>
+		</action>
+
+		<action name="transDataViewMultiMatchedExport" method="exportMultiMatchedData"
+			class="com.gcs.nlyte.web.action.NlyteCustTransDataViewAction">
+			<result name="success" type="tiles">nlyteViewtDataExport</result>
+			<result name="error" type="tiles">nlyteViewtDataExport</result>
+		</action>
+
+
+	</package>
+</struts>

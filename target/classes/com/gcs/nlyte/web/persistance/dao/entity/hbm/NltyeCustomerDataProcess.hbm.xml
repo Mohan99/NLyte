@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 28 Oct, 2017 6:23:46 PM by Hibernate Tools 5.2.5.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property"
+	default-cascade="none" default-lazy="true">
+	<class dynamic-insert="false" 
+		dynamic-update="false" mutable="true"
+		name="com.gcs.nlyte.web.persistance.dao.entity.NltyeCustomerDataProcess"
+		optimistic-lock="version" polymorphism="implicit" schema="dbo"
+		select-before-update="false" table="NLTYE_CUSTOMER_DATA_PROCESS">
+		<id name="processId" type="java.lang.Integer">
+			<column name="PROCESS_ID" />
+			<generator class="identity" />
+		</id>
+		<many-to-one
+			class="com.gcs.nlyte.web.persistance.dao.entity.NlyteCustomerDataTransStg"
+			embed-xml="true" fetch="select" insert="true" name="nlyteCustomerDataTransStg"
+			not-found="exception" optimistic-lock="true" unique="false" update="true">
+			<column name="PROCESS_NCT_ID" not-null="true" />
+		</many-to-one>
+		<many-to-one
+			class="com.gcs.nlyte.web.persistance.dao.entity.NlyteMasterDataTransStg"
+			embed-xml="true" fetch="select" insert="true" name="nlyteMasterDataTransStg"
+			not-found="exception" optimistic-lock="true" unique="false" update="true">
+			<column name="PROCESS_NMT_ID" not-null="true" />
+		</many-to-one>
+		<property generated="never" lazy="false" name="status"
+			optimistic-lock="true" type="java.lang.Integer" unique="false">
+			<column length="15" name="status" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="createdDt"
+			optimistic-lock="true" type="timestamp" unique="false">
+			<column length="23" name="CREATED_DT" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="updatedDt"
+			optimistic-lock="true" type="timestamp" unique="false">
+			<column length="23" name="UPDATED_DT" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="perentage"
+			optimistic-lock="true" type="string" unique="false">
+			<column length="10" name="PERENTAGE" not-null="true" />
+		</property>
+		
+	</class>
+</hibernate-mapping>

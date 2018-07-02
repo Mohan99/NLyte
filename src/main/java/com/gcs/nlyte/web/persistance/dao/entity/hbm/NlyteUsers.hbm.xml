@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 28 Oct, 2017 6:23:46 PM by Hibernate Tools 5.2.5.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class  dynamic-insert="false" dynamic-update="false" mutable="true" name="com.gcs.nlyte.web.persistance.dao.entity.NlyteUsers" optimistic-lock="version" polymorphism="implicit" schema="dbo" select-before-update="false" table="NLYTE_USERS">
+        <id name="nlyteUserId" type="java.lang.Integer">
+            <column name="NLYTE_USER_ID"/>
+            <generator class="identity"/>
+        </id>
+        <property generated="never" lazy="false" name="userDisplayNameTx" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="USER_DISPLAY_NAME_TX"/>
+        </property>
+        <property generated="never" lazy="false" name="userFirstNameTx" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="USER_FIRST_NAME_TX"/>
+        </property>
+        <property generated="never" lazy="false" name="userLastNameTx" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="USER_LAST_NAME_TX"/>
+        </property>
+        <property generated="never" lazy="false" name="userMiddleNameTx" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="USER_MIDDLE_NAME_TX"/>
+        </property>
+        <property generated="never" lazy="false" name="adminYn" optimistic-lock="true" type="boolean" unique="false">
+            <column name="ADMIN_YN" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="passwordTx" optimistic-lock="true" type="string" unique="false">
+            <column length="64" name="PASSWORD_TX" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="loginId" optimistic-lock="true" type="string" unique="false">
+            <column length="15" name="LOGIN_ID" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="mobileTx" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="MOBILE_TX"/>
+        </property>
+        <property generated="never" lazy="false" name="emailId" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="EMAIL_ID"/>
+        </property>
+        <property generated="never" lazy="false" name="activeYn" optimistic-lock="true" type="boolean" unique="false">
+            <column name="ACTIVE_YN" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="createdDt" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="23" name="CREATED_DT" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="updatedDt" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="23" name="UPDATED_DT" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

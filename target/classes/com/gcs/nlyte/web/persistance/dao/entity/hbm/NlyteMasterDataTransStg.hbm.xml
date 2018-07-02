@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 28 Oct, 2017 6:23:46 PM by Hibernate Tools 5.2.5.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class  dynamic-insert="false" dynamic-update="false" mutable="true" name="com.gcs.nlyte.web.persistance.dao.entity.NlyteMasterDataTransStg" optimistic-lock="version" polymorphism="implicit" schema="dbo" select-before-update="false" table="NLYTE_MASTER_DATA_TRANS_STG">
+        <id name="nmtId" type="java.lang.Integer">
+            <column name="NMT_ID"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="com.gcs.nlyte.web.persistance.dao.entity.NlyteMasterDataStg" embed-xml="true" fetch="select" insert="true" name="nlyteMasterDataStg" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="NMS_ID" not-null="true"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="materialNm" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="MATERIAL_NM"/>
+        </property>
+        <property generated="never" lazy="false" name="materialNmTx" optimistic-lock="true" type="string" unique="false">
+            <column length="60" name="MATERIAL_NM_TX"/>
+        </property>
+        <property generated="never" lazy="false" name="modelTx" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="MODEL_TX"/>
+        </property>
+        <property generated="never" lazy="false" name="manufacturerTx" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="MANUFACTURER_TX"/>
+        </property>
+        <property generated="never" lazy="false" name="materialTypTx" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="MATERIAL_TYP_TX"/>
+        </property>
+        <property generated="never" lazy="false" name="materialSubTypTx" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="MATERIAL_SUB_TYP_TX"/>
+        </property>
+        <property generated="never" lazy="false" name="widthNm" optimistic-lock="true" type="java.lang.Float" unique="false">
+            <column name="WIDTH_NM" precision="53" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="depthNm" optimistic-lock="true" type="java.lang.Float" unique="false">
+            <column name="DEPTH_NM" precision="53" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="heightNm" optimistic-lock="true" type="java.lang.Float" unique="false">
+            <column name="HEIGHT_NM" precision="53" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="weightNm" optimistic-lock="true" type="java.lang.Float" unique="false">
+            <column name="WEIGHT_NM" precision="53" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="copperPortsTx" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="COPPER_PORTS_TX"/>
+        </property>
+        <property generated="never" lazy="false" name="fiberPortsTx" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="FIBER_PORTS_TX"/>
+        </property>
+        <property generated="never" lazy="false" name="undefPortsTx" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="UNDEF_PORTS_TX"/>
+        </property>
+        <property generated="never" lazy="false" name="powerConsmptNm" optimistic-lock="true" type="java.lang.Float" unique="false">
+            <column name="POWER_CONSMPT_NM" precision="53" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="createdDt" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="23" name="CREATED_DT" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="updatedDt" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="23" name="UPDATED_DT" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="activeYn" optimistic-lock="true" type="boolean" unique="false">
+            <column name="ACTIVE_YN" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+   "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+   "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+	<definition name="nlyteLogin" template="/WEB-INF/pages/nlyteLogin.jsp">
+		<put-attribute name="title" value="NLyte" />
+		<put-attribute name="body" value="/WEB-INF/pages/login.jsp" />
+	</definition>
+
+	<definition name="nlyteLogon" template="/WEB-INF/pages/nlyteLogin.jsp">
+		<put-attribute name="title" value="NLyte" />
+		<put-attribute name="body" value="/WEB-INF/pages/login.jsp" />
+	</definition>
+
+	<definition name="nlyteLogout" template="/WEB-INF/pages/nlyteLogin.jsp">
+		<put-attribute name="title" value="NLyte" />
+		<put-attribute name="body" value="/WEB-INF/pages/login.jsp" />
+	</definition>
+
+	<definition name="baseLayout" template="/WEB-INF/pages/baseLayout.jsp">
+		<put-attribute name="title" value="NLyte" />
+		<put-attribute name="menu" value="/WEB-INF/pages/menu.jsp" />
+		<put-attribute name="body" value=" " />
+		<!-- <put-attribute name="footer" value="/WEB-INF/pages/footer.jsp"/> <put-attribute 
+			name="header" value="/WEB-INF/pages/header.jsp"/> -->
+	</definition>
+
+	<definition name="dashboard" extends="baseLayout">
+		<put-attribute name="title" value="NLyte" />
+		<put-attribute name="body" value="/WEB-INF/pages/dashboard.jsp" />
+	</definition>
+	<!-- Nlyte User attributes -->
+	<definition name="nlyteUserCreate" extends="baseLayout">
+		<put-attribute name="title" value="NLyte Create User" />
+		<put-attribute name="body" value="/WEB-INF/pages/createuser.jsp" />
+	</definition>
+
+	<definition name="nlyteShowMasterData" extends="baseLayout">
+		<put-attribute name="title" value="NLyte List of Imported Master Data" />
+		<put-attribute name="body"
+			value="/WEB-INF/pages/nlyteMasterDataList.jsp" />
+	</definition>
+	<!-- display list of users dashboard -->
+	<definition name="nlyteUserList" extends="baseLayout">
+		<put-attribute name="title" value="NLyte User List" />
+		<put-attribute name="body" value="/WEB-INF/pages/userList.jsp" />
+	</definition>
+
+	<definition name="nlyteDeletedUserList" extends="baseLayout">
+		<put-attribute name="title" value="NLyte User List" />
+		<put-attribute name="body" value="/WEB-INF/pages/deletedUserList.jsp" />
+	</definition>
+
+	<definition name="changePwd" extends="baseLayout">
+		<put-attribute name="title" value="NLyte User List" />
+		<put-attribute name="body" value="/WEB-INF/pages/changePassword.jsp" />
+	</definition>
+
+
+	<!-- importing customer Excel Request -->
+	<definition name="custImportBulk" extends="baseLayout">
+		<put-attribute name="title" value="Import NLyte Customer Data" />
+		<put-attribute name="body" value="/WEB-INF/pages/importCustData.jsp" />
+	</definition>
+	<!-- importing customer Excel Response -->
+	<definition name="custImportData" extends="baseLayout">
+		<put-attribute name="title" value="Import NLyte Customer Data" />
+		<put-attribute name="body"
+			value="/WEB-INF/pages/materialLookUpList.jsp" />
+	</definition>
+	
+	<definition name="custDataOther" extends="baseLayout">
+		<put-attribute name="title" value="Import NLyte Customer Data" />
+		<put-attribute name="body"
+			value="/WEB-INF/pages/materialLookUpListOtherUsers.jsp" />
+	</definition>
+
+	<definition name="custProcessedData" extends="baseLayout">
+		<put-attribute name="title" value="Import NLyte Customer Data" />
+		<put-attribute name="body"
+			value="/WEB-INF/pages/materialProcessedList.jsp" />
+	</definition>
+
+	<definition name="custDataImported" extends="baseLayout">
+		<put-attribute name="title" value="Import NLyte Customer Data" />
+		<put-attribute name="body"
+			value="/WEB-INF/pages/nlyteCustomerDataList.jsp" />
+	</definition>
+
+	<!-- custCellEditData -->
+
+	<definition name="custCellEditData" extends="baseLayout">
+		<put-attribute name="title" value="Review And Edit Materials" />
+		<put-attribute name="body"
+			value="/WEB-INF/pages/customermaterialsdata.jsp" />
+	</definition>
+
+
+
+	<!-- custCellViewProcessesData -->
+
+	<definition name="custCellViewProcessesData" extends="baseLayout">
+		<put-attribute name="title" value="Review And Edit Materials" />
+		<put-attribute name="body"
+			value="/WEB-INF/pages/processsedLookUpData.jsp" />
+	</definition>
+
+
+	<!-- importing master Excel Request -->
+	<definition name="nLyteImportBulk" extends="baseLayout">
+		<put-attribute name="title" value="Import NLyte Master Data" />
+		<put-attribute name="body" value="/WEB-INF/pages/importNlyteData.jsp" />
+	</definition>
+	<!-- importing customer Excel Response -->
+	<definition name="nlyteImportData" extends="baseLayout">
+		<put-attribute name="title" value="Import NLyte Master Data" />
+		<put-attribute name="body"
+			value="/WEB-INF/pages/nlyteMasterDataList.jsp" />
+	</definition>
+	<definition name="nlyteCustDataUpdated" extends="baseLayout">
+		<put-attribute name="title" value="NLyte Create User" />
+		<put-attribute name="body"
+			value="/WEB-INF/pages/materialLookUpProcessedList.jsp" />
+	</definition>
+	<definition name="nlyteReviewCustData" extends="baseLayout">
+		<put-attribute name="title"
+			value="nlyte Review Customer processed Data" />
+		<put-attribute name="body"
+			value="/WEB-INF/pages/reviewCustProcessedData.jsp" />
+	</definition>
+
+	<definition name="nlyteCustDataExportUpdated" extends="baseLayout">
+		<put-attribute name="title" value="Import NLyte Master Data" />
+		<put-attribute name="body" value="/WEB-INF/pages/export.jsp" />
+	</definition>
+	<definition name="nlyteViewtDataExport" extends="baseLayout">
+		<put-attribute name="title" value="Import NLyte Master Data" />
+		<put-attribute name="body" value="/WEB-INF/pages/export.jsp" />
+	</definition>
+	<definition name="nlyteViewtData" extends="baseLayout">
+		<put-attribute name="title" value="Import NLyte Master Data" />
+		<put-attribute name="body"
+			value="/WEB-INF/pages/materialLookUpUpdatedList.jsp" />
+	</definition>
+
+	<definition name="nlyteViewtDataProcessed" extends="baseLayout">
+		<put-attribute name="title" value="Processed Data" />
+		<put-attribute name="body"
+			value="/WEB-INF/pages/materialLookUpCustProcessed.jsp" />
+	</definition>
+
+	<definition name="nlyteViewtDataUnprocessed" extends="baseLayout">
+		<put-attribute name="title" value="Un Processed Data" />
+		<put-attribute name="body"
+			value="/WEB-INF/pages/materialLookUpCustUnprocessed.jsp" />
+	</definition>
+	<definition name="nlyteViewMasterTransData" extends="baseLayout">
+		<put-attribute name="title" value="NLyte Master Trans Data" />
+		<put-attribute name="body"
+			value="/WEB-INF/pages/nlyteMasterDataTransList.jsp" />
+	</definition>
+
+
+	<definition name="nlyteUserList" extends="baseLayout">
+		<put-attribute name="title" value="NLyte User List" />
+		<put-attribute name="body" value="/WEB-INF/pages/userList.jsp" />
+	</definition>
+
+	<definition name="nlyteEditUser" extends="baseLayout">
+		<put-attribute name="title" value="NLyte User List" />
+		<put-attribute name="body" value="/WEB-INF/pages/editUser.jsp" />
+	</definition>
+
+	<definition name="nlyteUpdateUser" extends="baseLayout">
+		<put-attribute name="title" value="NLyte User List" />
+		<put-attribute name="body" value="/WEB-INF/pages/userList.jsp" />
+	</definition>
+
+	<definition name="nlyteDeleteUser" extends="baseLayout">
+		<put-attribute name="title" value="NLyte User List" />
+		<put-attribute name="body" value="/WEB-INF/pages/userList.jsp" />
+	</definition>
+
+	<definition name="nlyteChangePassword" extends="baseLayout">
+		<put-attribute name="title" value="NLyte User List" />
+		<put-attribute name="body" value="/WEB-INF/pages/success.jsp" />
+	</definition>
+
+	<definition name="nlyteViewtDataMultiMatched" extends="baseLayout">
+		<put-attribute name="title" value="Multiple Matched Data" />
+		<put-attribute name="body"
+			value="/WEB-INF/pages/materialLookUpCustMultiMatched.jsp" />
+	</definition>
+
+
+
+</tiles-definitions>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 28 Oct, 2017 6:23:46 PM by Hibernate Tools 5.2.5.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class  dynamic-insert="false" dynamic-update="false" mutable="true" name="com.gcs.nlyte.web.persistance.dao.entity.NlyteMasterDataStg" optimistic-lock="version" polymorphism="implicit" schema="dbo" select-before-update="false" table="NLYTE_MASTER_DATA_STG">
+        <id name="nmsId" type="java.lang.Integer">
+            <column name="NMS_ID"/>
+            <generator class="identity"/>
+        </id>
+        <property generated="never" lazy="false" name="descriptionTx" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="DESCRIPTION_TX"/>
+        </property>
+        <property generated="never" lazy="false" name="lstUpdtDtm" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="23" name="LST_UPDT_DTM" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="createdDt" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="23" name="CREATED_DT" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="excelFileBlb" optimistic-lock="true" type="binary" unique="false">
+            <column name="EXCEL_FILE_BLB"/>
+        </property>
+        <property generated="never" lazy="false" name="activeYn" optimistic-lock="true" type="boolean" unique="false">
+            <column name="ACTIVE_YN" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="userDisplayNameTx" optimistic-lock="true" type="string" unique="false">
+			<column length="50" name="USER_DISPLAY_NAME_TX" />
+		</property>
+		<property generated="never" lazy="false" name="loginId" optimistic-lock="true" type="string" unique="false">
+		<column length="15" name="LOGIN_ID" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="status" optimistic-lock="true" type="string" unique="false">
+		<column length="15" name="STATUS_TX" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="uniqueId" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="UNQ_ID"/>
+        </property>
+        <property generated="never" lazy="false" name="excelFileName" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="EXCEL_FILE_NAME"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="nlyteMasterDataTransStgs" optimistic-lock="true" sort="unsorted" table="NLYTE_MASTER_DATA_TRANS_STG">
+            <key on-delete="noaction">
+                <column name="NMS_ID" not-null="true"/>
+            </key>
+            <one-to-many class="com.gcs.nlyte.web.persistance.dao.entity.NlyteMasterDataTransStg" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

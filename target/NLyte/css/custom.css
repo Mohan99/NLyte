@@ -1,0 +1,13 @@
+#dataTables-example td,th{
+	text-align:center !important;
+}
+
+
+#dataTables-example_length{
+	 float: left !important;
+}
+#dataTables-example_filter .dataTables_filter{
+    float: right !important;
+}
+
+ 
